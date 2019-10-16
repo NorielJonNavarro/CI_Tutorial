@@ -12,7 +12,8 @@ body
 
 .posts
 {
+    width: 60vw;
     margin: 1vh 2vw;
     padding: 1vh 1vh;
-    border: 3px solid black;
+    border: 2px solid black;
 }

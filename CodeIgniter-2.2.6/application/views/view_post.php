@@ -10,7 +10,7 @@
 <title>Title</title>
 </head>
 <body>
-<div class="view-content">
+<div class="view-content d-flex justify-content-center">
            <div class="jumbotron view">
            <h1 class="try">Chapters</h1>
             <?php
