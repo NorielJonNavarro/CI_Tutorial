@@ -28,10 +28,11 @@
                         echo "<a href=' ".base_url()."posts/edit_post/" .$row['postID']."' class='float-right pt-2'><button class='btn btn-primary mr-2'>Edit</button></a>";    
                         echo "<p><a href='".base_url()."posts/post/".$row['postID']."'>Read More</a></p>";        
                         echo "</div>";
-		            }
+                    }
+                    
 	            }
-	
-            ?>        
+            ?>   
+            <?=$pages?>     
                 <a href="<?=base_url()?>posts/new_post" class="float-right pt-2"><button class="btn btn-primary">New Post</button></a>
             </div>
 

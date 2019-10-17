@@ -7,9 +7,15 @@
             $this->load->model('post');
         }
 
-        function Index()
+        function Index($start=0)
         {
-            $data['posts'] = $this->post->get_posts();
+            $data['posts'] = $this->post->get_posts(3, $start);
+            $this->load->library('pagination');
+            $config['base_url'] = base_url(). 'posts/index';
+            $config['total_rows'] = $this->post->get_posts_count();
+            $config['per_page'] = 3;
+            $this->pagination->initialize($config);
+            $data['pages'] = $this->pagination->create_links();
             $this->load->view('view_post', $data);
         }//end of functions
 

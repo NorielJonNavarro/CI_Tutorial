@@ -13,6 +13,13 @@
             $query = $this->db->get();
             return $query->first_row('array');
         }//end of get_post() function
+
+        function get_posts_count()
+        {
+            $this->db->select('postID')->from('posts')->where(array('active' => 1));
+            $query = $this->db->get();
+            return $query->num_rows();
+        }
         
         function insert_post($data)
         {
