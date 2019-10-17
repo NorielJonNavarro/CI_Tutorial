@@ -9,9 +9,7 @@
 
         function get_post($postID)
         {
-            $this->db->select();
-            $this->db->from('posts');
-            $this->db->where(array('active' => 1, 'postID' => $postID));
+            $this->db->select()->from('posts')->where(array('active' => 1, 'postID' => $postID))->order_by('date_added', 'desc');
             $query = $this->db->get();
             return $query->first_row('array');
         }//end of get_post() function
