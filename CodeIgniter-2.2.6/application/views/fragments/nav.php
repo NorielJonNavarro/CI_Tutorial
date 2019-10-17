@@ -1,21 +1,21 @@
 <nav class="navbar navbar-dark bg-dark justify-content-end">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link active" href="#" data-toggle="modal" data-target="#exampleModal">Register</a>
+            <a class="nav-link active" href="#" data-toggle="modal" data-target="#register">Register</a>
         </li>
 
-        <!-- <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link active" href="#" tabindex="-1" aria-disabled="true">Register</a>
-        </li> -->
+        </li>
     </ul>
 </nav>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="registerLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+        <h5 class="modal-title" id="registerLabel">Register</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

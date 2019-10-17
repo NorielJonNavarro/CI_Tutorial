@@ -36,6 +36,7 @@
                         );
 
                         $this->user->register($data);
+                        redirect(base_url(). '/users/user');
                     }else{
                         echo "<script>alert('Password did not match');</script>";
                         echo "<script>location.replace('users')</script>";
