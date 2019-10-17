@@ -7,7 +7,7 @@
             $this->load->model('post');
         }
 
-        function Index($start=0)
+        function index($start=0)
         {
             $data['posts'] = $this->post->get_posts(3, $start);
             $this->load->library('pagination');
@@ -16,13 +16,13 @@
             $config['per_page'] = 3;
             $this->pagination->initialize($config);
             $data['pages'] = $this->pagination->create_links();
-            $this->load->view('view_post', $data);
+            $this->load->view('posts/view_post', $data);
         }//end of functions
 
         function post($postID)
         {
             $data['post'] = $this->post->get_post($postID);
-            $this->load->view('post', $data);
+            $this->load->view('/posts/post', $data);
             
         }//end of post() function
 
@@ -38,7 +38,7 @@
                 $this->post->insert_post($data);
                 redirect(base_url(). 'posts/');
             }else{
-                $this->load->view('new_post');
+                $this->load->view('posts/new_post');
             }
         }//end of new_post() function
 
@@ -58,7 +58,7 @@
                 redirect(base_url(). '/posts');
             }else{
                 $data['post'] = $this->post->get_post($postID);
-                $this->load->view('edit_post', $data);
+                $this->load->view('posts/edit_post', $data);
             }
 
         }//end of edit_post() function
