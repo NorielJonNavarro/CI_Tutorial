@@ -11,9 +11,9 @@
 </head>
 <body>
 
-<?php
-    echo "<pre>"; print_r($post); echo "</pre>";
-?>
+
+    <h1><?=$post['title'] ?></h1>
+    <?=$post['post'] ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>

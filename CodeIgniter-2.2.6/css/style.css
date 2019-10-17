@@ -1,19 +1,24 @@
-body
-{
+body{
     width: auto;
     height: 100vh;
 }
 
-.view
-{
+.view{
     height: 100vh;
     background: none;
 }
 
-.posts
-{
+.posts{
     width: 60vw;
     margin: 1vh 2vw;
-    padding: 1vh 1vh;
+    padding: 2vh 1vh;
     border: 2px solid black;
+}
+
+.new-post{
+    width: 20vw;
+    height: 40vh;
+    padding: 2vh 2vw;
+    border: 1px solid black;
+    border-radius: 2%;
 }

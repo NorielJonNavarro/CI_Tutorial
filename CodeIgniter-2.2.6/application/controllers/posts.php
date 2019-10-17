@@ -30,10 +30,37 @@
                 );
 
                 $this->post->insert_post($data);
-                redirect(base_url(). 'post/');
+                redirect(base_url(). 'posts/');
             }else{
                 $this->load->view('new_post');
             }
         }//end of new_post() function
+
+        function edit_post($postID)
+        {
+            $data['success'] = 0;
+            
+            if($_POST){
+                $data = array( 
+                    'title' => $_POST['title'],
+                    'post' => $_POST['post'],
+                    'active' => 1
+                );
+
+                $this->post->update_post($postID, $data);
+                $data['success'] = 1;
+                redirect(base_url(). '/posts');
+            }else{
+                $data['post'] = $this->post->get_post($postID);
+                $this->load->view('edit_post', $data);
+            }
+
+        }//end of edit_post() function
+
+        function deletePost($postID)
+        {
+            $this->post->delete_post($postID);
+            redirect(base_url(). '/posts');
+        }//end of delete_post() function
     }//end of class
 //end of php?>
