@@ -21,7 +21,7 @@
 <div id="register" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="register-title" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header register-head">
                 <h5 class="modal-title" id="my-modal-title">Register</h5>
                 <button class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -41,12 +41,12 @@
 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input id="password" class="form-control" type="password" name="password">
+                    <input id="password" class="form-control" type="password" name="password" placeholder="Password" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="verifyPassword">Text</label>
-                    <input id="verifyPassword" class="form-control" type="password" name="verifyPassword">
+            <div class="form-group">
+                    <label for="verifyPassword">Verify Password</label>
+                    <input id="verifyPassword" class="form-control" type="password" name="verifyPassword" placeholder="Verify Password" required>
                 </div>
             </div>
             <div class="modal-footer">

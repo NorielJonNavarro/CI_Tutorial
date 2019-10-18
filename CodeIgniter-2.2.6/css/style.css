@@ -23,3 +23,8 @@ html, body {
 .login-form h1 {
     font-size: 2vw;
 }
+
+.register-head {
+    background-color: black;
+    color: white;
+}
