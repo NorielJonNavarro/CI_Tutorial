@@ -9,7 +9,7 @@
             
             <div class="form-group">
                 <label for="password">Password</label>
-                <input id="password" class="form-control" type="password" name="username" placeholder="Password" required>
+                <input id="password" class="form-control" type="password" name="password" placeholder="Password" required>
             </div> 
 
             <button class="btn btn-primary float-right mt-2">Login</button>

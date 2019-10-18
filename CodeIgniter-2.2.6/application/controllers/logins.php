@@ -17,12 +17,17 @@ class Logins extends CI_Controller
     {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $validateUsername = $this->login->validate_credentials($username);
-
-        if($validateUsername == 1){
-            $validatePassword = $this->login->validate_password($password);
-        }else {
-            $this->index();
+        $data['user'] = $this->login->validate_credentials($username);
+        
+        if(count($data['user']) == 0){
+            redirect(base_url());
+            exit();
+        }else{
+            $verifyPassword = $data['user'][0]['password'];
+            if(password_verify($password, $verifyPassword)){
+                $this->load->view('profile', $data);
+            }else
+                echo "nyek";
         }
     }
 }
