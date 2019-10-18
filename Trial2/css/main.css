@@ -3,7 +3,7 @@ html, body {
     width: 100%;
 }
 
-.login-body{
+.login-body {
     height: 100%;
     width: 100%;
     background-image: url(../img/login_background.jpg);
@@ -13,7 +13,26 @@ html, body {
     background-size: cover;
 }
 
-.login-form{
+.login-form {
+    padding: 0;
     width: 20vw;
     height: 40vh;
+    font-size: 100%;
+}
+
+.login-form-body {
+    margin: 1vw;
+}
+
+.login-form-header {
+    width: 100%;
+    padding: 1vh 1vw;
+    background-color: black;
+    color: white;
+}
+
+.login-form-button {
+    background-color: black !important;
+    color: white;
+    width: 100%;
 }
