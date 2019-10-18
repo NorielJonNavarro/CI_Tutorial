@@ -16,10 +16,11 @@ class Logins extends CI_Controller
     function validation()
     {
         $username = $_POST['username'];
-        $result = $this->login->validate_credentials($username);
+        $password = $_POST['password'];
+        $validateUsername = $this->login->validate_credentials($username);
 
-        if($result == 1){
-            redirect(base_url(). "logins");
+        if($validateUsername == 1){
+            $validatePassword = $this->login->validate_password($password);
         }else {
             $this->index();
         }
