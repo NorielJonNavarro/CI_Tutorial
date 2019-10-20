@@ -36,3 +36,17 @@ html, body {
     color: white;
     width: 100%;
 }
+
+.user-navbar {
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+
+.user-navbar-item a {
+    color: white;
+}
+
+.user-navbar-item a:hover {
+    color: cornflowerblue;
+}
