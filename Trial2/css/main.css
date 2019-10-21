@@ -37,7 +37,7 @@ html, body {
     padding: 0;
 }
 
-.login-form-button {
+.form-button {
     background-color: black !important;
     color: white;
     width: 100%;
@@ -59,4 +59,30 @@ html, body {
 
 .user-navbar-item .user-logout {
     color: red;
+}
+
+.register-form {
+    padding: 0;
+    height: 50vh;
+    font-size: 100%;
+}
+
+.register-form-header {
+    width: 100%;
+    padding: 1vh 1vw;
+    background-color: black;
+    color: white;
+}
+
+.register-form-body {
+    margin: 1vw;
+}
+.register-form-button {
+    background-color: black !important;
+    color: white;
+    width: 100%;
+}
+
+.try{
+    width: 20vw;
 }

@@ -6,7 +6,7 @@
     <div id="my-nav" class="collapse navbar-collapse user-navbar-item d-flex justify-content-end">
         <ul class="nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#"><?= $session_user['username'];?></a>
+                <a class="nav-link" href="#"><?= $session_user['firstName'];?></a>
             </li>
             
             <li class="nav-item">

@@ -25,9 +25,16 @@ class Auths extends CI_Controller
         $username = $_POST['username'];
         $password = $_POST['password'];
         $authenticate = $this->auth->auth_user($username, $password);
-        if($authenticate){
+        if($authenticate['validate']){
             $data = array(
-                'username' => $username
+                'userID' => $authenticate['user_info']['userID'],
+                'username' => $username,
+                'email' => $authenticate['user_info']['email'],
+                'type' => $authenticate['user_info']['type'],
+                'firstName' => $authenticate['user_info']['firstName'],
+                'middleName' => $authenticate['user_info']['middleName'],
+                'lastName' => $authenticate['user_info']['lastName'],
+
             );
             $this->session->set_userdata('user_data', $data);
             redirect('auths');
@@ -35,6 +42,40 @@ class Auths extends CI_Controller
         }else {
             echo "<script> alert('Incorrect Username or Password');</script>";
             echo "<script> window.location.href = '"; base_url(); echo "auths' </script>";
+        }
+    }
+
+    function register()
+    {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $verifyPassword = $_POST['verifyPassword'];
+
+        $verifyUsername = $this->auth->verify_username($username); 
+        $verifyEmail = $this->auth->verify_email($email);
+        $verifiedPassword = $this->auth->validate_password($password, $verifyPassword);
+
+        if($verifyUsername == 1){
+            exit('Username Already Exists');
+        }else{
+            if($verifyEmail == 1){
+                exit('E-mail Address Already Exists');
+            }else {
+                if($verifiedPassword == "false") {
+                    exit('Password Did Not Match');
+                }else {
+                    $data = array(
+                        'username' => $username,
+                        'email' => $email,
+                        'password' => $verifiedPassword
+                    );
+
+                    $this->auth->register_user($data);
+                    $this->session->set_userdata('user_data', $data);
+                    redirect('auths');
+                }
+            }
         }
     }
 
