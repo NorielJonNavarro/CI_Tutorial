@@ -6,15 +6,11 @@
     <div id="my-nav" class="collapse navbar-collapse user-navbar-item d-flex justify-content-end">
         <ul class="nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#"><?= $user['username']?></a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Item 1</a>
+                <a class="nav-link" href="#"><?= $session_user['username'];?></a>
             </li>
             
             <li class="nav-item">
-                <a class="nav-link" href="#">Item 2</a>
+                <a class="nav-link user-logout" href="<?= base_url()?>auths/logout_user">Logout</a>
             </li>
         </ul>
     </div>

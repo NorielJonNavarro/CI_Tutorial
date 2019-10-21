@@ -6,9 +6,17 @@ class Auths extends CI_Controller
         parent::__construct();
         $this->load->model('auth');
     }
+    
     function index()
     {
-        $data['content'] = "auth/login";
+        $session_user = $this->session->userdata('user_data');
+        if(!empty($session_user)){
+            $data['session_user'] = $session_user;
+            $data['content'] = "user/home";
+        }else{
+            $data['content'] = "auth/login";
+        }
+
         $this->load->view('modules/template', $data);
     }
 
@@ -16,22 +24,23 @@ class Auths extends CI_Controller
     {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $authenticate = $this->auth->auth_user($username);
-
-        if($authenticate == 1){
-            $data['user'] = $this->auth->get_user_info($username);
-            $validatePassword = $data['user']['password'];
-
-            if(password_verify($password, $validatePassword)){
-                $data['content'] = "user/home";
-                $this->load->view('modules/template', $data);
-            }else {
-                echo "Wrong password";
-            }
+        $authenticate = $this->auth->auth_user($username, $password);
+        if($authenticate){
+            $data = array(
+                'username' => $username
+            );
+            $this->session->set_userdata('user_data', $data);
+            redirect('auths');
+            exit('success');
         }else {
-            echo "User not found";
+            echo "<script> alert('Incorrect Username or Password');</script>";
+            echo "<script> window.location.href = '"; base_url(); echo "auths' </script>";
         }
+    }
 
+    function logout_user() {
+        $this->session->sess_destroy();
+        redirect('auths');
     }
 }
 ?>

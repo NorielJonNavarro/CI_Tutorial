@@ -20,15 +20,21 @@ html, body {
     font-size: 100%;
 }
 
-.login-form-body {
-    margin: 1vw;
-}
-
 .login-form-header {
     width: 100%;
     padding: 1vh 1vw;
     background-color: black;
     color: white;
+}
+
+.login-form-body {
+    margin: 1vw;
+}
+
+.login-form-body .validate {
+    color: red;
+    margin: 0;
+    padding: 0;
 }
 
 .login-form-button {
@@ -49,4 +55,8 @@ html, body {
 
 .user-navbar-item a:hover {
     color: cornflowerblue;
+}
+
+.user-navbar-item .user-logout {
+    color: red;
 }
