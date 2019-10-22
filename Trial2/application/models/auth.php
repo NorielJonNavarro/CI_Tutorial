@@ -8,15 +8,18 @@ class Auth extends CI_Model
         $this->db->select();
         $this->db->from('users');
         $this->db->where(array('username' => $username));
-        $this->db->join('user_information', 'users.userID=user_information.userID');
+        $this->db->join('user_information', 'users.userID=user_information.userID', 'left');
         $query2 = $this->db->get();
         $validatePassword = $query2->first_row('array');
         $user = $query2->first_row('array');
-        if($query->num_rows() == 1 && password_verify($password, $validatePassword['password'])){
-            return array('validate' => true, 'user_info' => $user);
-        }else{
-            return false;
-        }
+
+        echo var_dump($validatePassword);
+        echo var_dump($query->first_row('array'));
+        // if($query->num_rows() == 1 && password_verify($password, $validatePassword['password'])){
+        //     return array('validate' => true, 'user_info' => $user);
+        // }else{
+        //     return false;
+        // }
         
     }
 

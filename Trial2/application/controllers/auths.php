@@ -41,7 +41,7 @@ class Auths extends CI_Controller
             exit('success');
         }else {
             echo "<script> alert('Incorrect Username or Password');</script>";
-            echo "<script> window.location.href = '"; base_url(); echo "auths' </script>";
+            // echo "<script> window.location.href = '"; base_url(); echo "auths' </script>";
         }
     }
 
