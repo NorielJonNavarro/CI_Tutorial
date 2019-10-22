@@ -1,0 +1,70 @@
+html body {
+    margin: 0;
+    padding: 0;
+}
+
+.login {
+    background-attachment: fixed;
+    background-image: url(../img/index_background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.login-form {
+    background-color: whitesmoke;
+    height: 40vh;
+    margin: 0;
+    padding: 0;
+    width: 20vw;
+}
+
+.login-form-header {
+    padding-top: 2vh;
+    width: 100%;
+    height: auto;
+}
+
+.login-form-body {
+    margin: 0;
+    padding: 2vw;
+    width: 100%;
+    height: auto;
+}
+
+.fa-user{
+    color: white;
+    background-color: black;
+    width: 80px;
+    height: 80px;
+}
+
+.login-form-body .user-icon{
+    position: absolute;
+    padding-top: 11px;
+    padding-left: 11px;
+}
+
+.login-form-body .login-button{
+    background-color: black;
+    width: 100%;
+}
+
+.login-form-body .login-button:hover{
+    background-color: white;
+    color: black;
+    width: 100%;
+}
+.login-form-body input{
+    padding-left: 30px;
+}
+
+.logout-button {
+    color: red !important;
+}
+
+.logout-button:hover{
+    color: white !important;
+}
