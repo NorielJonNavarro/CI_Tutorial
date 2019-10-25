@@ -1,45 +1,44 @@
 <?php
 class Authenticate extends CI_Model
 {
-
     /*
-        authenticate_user() function does the following:
-        1. Queries the database and check if the email exists in the database. 
-        2. If it does not exists it will exit and prompts a message "E-mail does not exists",
-        If it exists it will then verify the password with the use of an if statement.
-        3. If the password_verify() function returns the data of the admin/user, the authenticate_user() function
-        will return true, else it eill exit and prompt a message "Incorrect password"
+        Query: SELECT 'password, type' from staffs WHERE email = "<user_input>";
+        1. If there is no result to the query it means that the email does not exists in the database.
+        2. It checks if the user type is equal to admin.
+        3. It checks if the password that the user entered matches its password from the database.
+        4. returns $result. 
+        
     */
     function authenticate_user($email, $password)
     {
-        
-        $query = $this->db->get_where('staffs', array('email' => $email));
-        $result = $query->first_row('array');
+        $this->db->select('first_name, password, type');
+        $this->db->from('staffs');
+        $this->db->where(array('email' => $email));
+        $query =  $this->db->get();
+        $verify = $query->first_row('array');
 
-        if($query->num_rows() == 0){
-            echo "<script>alert('Incorrect E-mail')</script>";
-            echo "<script>window.location.href ='"; base_url(); echo"index'</script>";
-            exit();
-        }
+        if($query->num_rows()){
+            $result['email'] = true;
+            
+            if($verify['type'] === 'admin'){
+                $result['admin'] = true;
+            }else{
+                $result['admin'] = false;
+            }
 
-        if(password_verify($password, $result['password'])){
-            return $result;
-        }else {
-            echo "<script>alert('Incorrect Password')</script>";
-            echo "<script>window.location.href ='"; base_url(); echo"index'</script>";
-        }
+            if(password_verify($password, $verify['password'])){
+                $result['password'] = true;
+            }else{
+                $result['password'] = false;
+            }
 
-    }
-
-    function check_session()
-    {
-        $session['user_data'] = $this->session->userdata('user_data');
-        if(!empty($session['user_data'])){
-            $session['content'] = 'modules/admin/home';
-            $this->load->view('modules/admin/template', $session);
+            $result['name'] = $verify['first_name'];
         }else{
-            redirect(base_url() . 'backend/login');
+            $result['email'] = false;
         }
-    }
-}
+
+        return $result;
+    }//end of authenticate_user
+
+}//end of class
 ?>
