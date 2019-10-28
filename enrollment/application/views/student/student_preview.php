@@ -10,7 +10,7 @@
 						echo '<h1>There are no currently enrolled students</h1>';
 						echo '</div>';
 						echo '<div class="text-center">';
-						echo '<button type="button" class="btn btn-success mb-2" data-toggle="modal" data-target="#add-staff">';
+						echo '<button type="button" class="btn btn-success mb-2" data-toggle="modal" data-target="#add-student">';
 						echo '<i class="fas fa-user-plus"></i>';
 						echo '</button>';
 						echo '</div>';

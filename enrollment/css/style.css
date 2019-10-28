@@ -173,3 +173,9 @@ html body {
 .try{
     width: 15vw;
 }
+
+
+.student-form {
+    max-width: 65vw !important;
+    max-width: 65vw !important;
+}

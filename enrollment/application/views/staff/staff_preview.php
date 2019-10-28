@@ -44,7 +44,7 @@
 						echo '<td>'.$row['middle_name'].'</td>';
 						echo '<td>'.$row['last_name'].'</td>';
 						echo '<td>'.$row['email'].'</td>';
-						echo '<td class="text-center">'.$row['phone_number'].'</td>';
+						echo '<td class="text-center">'.$row['mobile_number'].'</td>';
 						echo '<td>'.$row['position'].'</td>';
 						echo '<td>';
 						echo '<a href="" onclick="#"><i class="fas fa-user-edit fa-lg mr-2 ml-2 edit-button" data-toggle="modal" href="#edit-staff"></i></>';

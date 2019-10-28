@@ -37,8 +37,11 @@
 			</div>
 		</section>
 	</div>
-
+	<!-- staff -->
 	<?php $this->load->view('staff/add_staff');?>
 	<?php $this->load->view('staff/delete_staff');?>
+	<!-- student -->
 	<?php $this->load->view('student/add_student');?>
+	<!-- course -->
+	<?php $this->load->view('courses/add_course');?>
 </div>

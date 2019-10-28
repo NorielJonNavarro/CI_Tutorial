@@ -10,7 +10,7 @@
 				echo '<h1>There are no available courses</h1>';
 				echo '</div>';
 				echo '<div class="text-center">';
-				echo '<button type="button" class="btn btn-danger mb-2" data-toggle="modal" data-target="#add-staff">';
+				echo '<button type="button" class="btn btn-danger mb-2" data-toggle="modal" data-target="#add-course">';
 				echo '<i class="far fa-calendar-plus"></i>';
 				echo '</button>';
 				echo '</div>';
