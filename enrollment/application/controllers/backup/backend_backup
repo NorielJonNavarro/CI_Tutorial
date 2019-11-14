@@ -13,7 +13,7 @@ class Backend extends CI_Controller
         $session = $this->session->userdata('logged_in');
         if($session)
         {
-            echo '<script>window.location.href = "staffs/"</script>';
+            redirect(base_url(). 'staffs');
         }
         else
         {  
@@ -24,18 +24,13 @@ class Backend extends CI_Controller
         }
     }//end of index
 
-    function practice()
-    {  
-        $this->load->view('try');        
-    }//end of index
-
 
     function login()
     {
         $session = $this->session->userdata('logged_in');
         if($session)
         {
-            echo '<script>window.location.href = "../staffs/"</script>';
+            redirect(base_url(). 'staffs');
         }
         else 
         {
@@ -48,12 +43,11 @@ class Backend extends CI_Controller
                     'email' => $verify['email'],                
                     'password' => $verify['password'],
                     'user_type' => $verify['user_type'],
-                    'user_info' => $verify['user_info'],
                 );
     
                 if($verify['email'] && $verify['password'] && $verify['user_type'])
                 {
-                    $this->session->set_userdata('logged_in', $array['user_info']);
+                    $this->session->set_userdata('logged_in', $array);
                 }
                 
                 echo json_encode($array);
@@ -77,3 +71,48 @@ class Backend extends CI_Controller
 
 }//end of class
 ?>
+
+
+
+
+
+"SELECT DISTINCT(course_description), `studentlist`.`course_id`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`
+FROM `studentlist`
+RIGHT JOIN `courses` ON `studentlist`.`course_id` = `courses`.`course_id`
+WHERE `courses`.`course_id` != '75'
+AND   (
+   (
+`start_time` >= '12:00:00'
+AND `start_time` <= '13:00:00'
+  )
+OR    (
+`end_time` >= '12:00:00'
+AND `end_time` <= '13:00:00'
+  )
+ )
+AND   (
+   (
+`monday` = '1'
+AND `monday` IS NOT NULL
+  )
+OR    (
+`tuesday` IS NULL
+AND `tuesday` IS NOT NULL
+  )
+OR    (
+`wednesday` = '1'
+AND `wednesday` IS NOT NULL
+  )
+OR    (
+`thursday` IS NULL
+AND `thursday` IS NOT NULL
+  )
+OR    (
+`friday` = '1'
+AND `friday` IS NOT NULL
+  )
+OR    (
+`saturday` IS NULL
+AND `saturday` IS NOT NULL
+  )
+ )"

@@ -12,35 +12,33 @@ class Authenticate extends CI_Model
 
     function validate_credentials($email, $password)
     {
-        $this->db->select();
+        $this->db->select('email, password, user_type');
         $this->db->from('staff');
         $this->db->where(array('email' => $email));
         $query = $this->db->get();
         $row = $query->num_rows();
-        $result = $query->first_row('array');
         $data['email'] = false;
         $data['password'] = false;
         $data['user_type'] = false;
-        $data['user_info'] = false;
 
         if($row)
         {
+            $result = $query->first_row('array');
             $verify_password = password_verify($password, $result['password']);
             if($result['email'] && $verify_password && $result['user_type'] === 'admin')
             {
-                $data['email'] = true;
-                $data['password'] = true;
-                $data['user_type'] = true;
-                $data['user_info'] = $result;
+                $data['email'] = $result['email'];
+                $data['password'] = $result['password'];
+                $data['user_type'] = $result['user_type'];
             }
                 elseif($result['email'] && $verify_password && $result['user_type'] != 'admin')
             {
-                $data['email'] = true;
-                $data['password'] = true;
+                $data['email'] = $result['email'];
+                $data['password'] = $result['password'];
             }
                 elseif($result['email'] && !$verify_password)
             {
-                $data['email'] = true;
+                $data['email'] = $result['email'];
             }        
         }
 

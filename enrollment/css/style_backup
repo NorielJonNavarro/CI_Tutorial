@@ -1,0 +1,193 @@
+
+html body { 
+    margin: 0; 
+    padding: 0;
+}
+
+/* login */
+.login-page { 
+    background-attachment: fixed; 
+    background-image: url(../img/index_background.jpg); background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.login-page .login-form {
+    background-color: whitesmoke;
+    height: 40vh;
+    margin: 0;
+    padding: 0;
+    width: 20vw;
+}
+
+.login-page .login-form .login-form-header {
+    padding-top: 2vh;
+    width: 100%;
+    height: auto;
+}
+
+.login-page .login-form .login-form-header .login-icon{
+    color: white;
+    background-color: black;
+    width: 80px;
+    height: 80px;
+}
+
+.login-page .login-form  .login-form-body {
+    margin: 0;
+    padding: 2vw;
+    width: 100%;
+    height: auto;
+}
+
+.login-page .login-form  .login-form-body .user-icon{
+    position: absolute;
+    padding-top: 11px;
+    padding-left: 11px;
+}
+
+.login-page .login-form  .login-form-body .login-button{
+    background-color: black;
+    width: 100%;
+}
+
+.login-page .login-form  .login-form-body .login-button:hover{
+    background-color: white;
+    color: black;
+    width: 100%;
+}
+.login-page .login-form  .login-form-body input{
+    padding-left: 30px;
+}
+/* /login */
+
+/* logout */
+.logout-button {
+    color: red !important;
+}
+
+.logout-button:hover{
+    color: white !important;
+}
+
+/* /logout */
+
+/* navigation bar(top) */
+.navbar-top {
+    width: 100%;
+}
+
+/* /navigation bar(top) */
+
+/* button */
+.edit-button {
+    color: rgb(110, 197, 23) !important;
+}
+
+.submit-edit {
+    background-color: rgb(110, 197, 23);
+    color: white;
+}
+
+.submit-edit:hover {
+    background-color: rgb(96, 168, 24);
+    color: white;
+}
+
+.delete-button {
+    color: red !important;
+}
+
+/* /button */
+
+.edit-form-header{
+    background-color:  rgb(110, 197, 23);
+    color: white;
+}
+
+
+.preview {
+    margin: 0% !important;
+    padding-bottom: 3%;
+}
+
+.preview .staff-header {
+    background-color: rgb(41, 141, 187);
+    color: white;
+    margin-bottom: 2%;
+}
+
+.preview .student-header {
+    background-color: rgb(41, 187, 102);
+    color: white;
+    margin-bottom: 2%;
+}
+
+.preview .course-header {
+    background-color: rgb(187, 41, 41);
+    color: white;
+    margin-bottom: 2%;
+}
+
+.preview .preview-body{
+    padding: 2%;
+}
+
+.preview .preview-tables {
+    width: 100%;
+}
+
+.preview .view-staff{
+    background-color:rgb(41, 141, 187);
+    color: white;
+}
+
+.cards {
+    max-width: 300vw;
+    height: auto;
+}
+
+
+.add-staff .add-staff-header {
+    background-color:rgb(41, 141, 187);
+    color: white;
+}
+
+.add-staff .add-staff-body input {
+    margin-top: 1vh;
+}
+
+.incorrect {
+    color: red;
+    position: absolute;
+}
+
+
+.delete-header {
+    background-color: rgb(187, 41, 41);
+    color: white;
+}
+
+.try{
+    width: 15vw;
+}
+
+
+.student-form {
+    max-width: 65vw !important;
+    max-width: 65vw !important;
+}
+
+.course-form {
+    max-width: 40vw !important;
+    max-width: 40vw !important;
+}
+.logout {
+    color: red;
+}
+
+.staff_id {
+    display: none;
+}

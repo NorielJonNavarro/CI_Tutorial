@@ -1,181 +1,282 @@
-
-html body { 
-    margin: 0; 
-    padding: 0;
+html, body {
+    height: 100%;
 }
 
-/* login */
-.login-page { 
-    background-attachment: fixed; 
-    background-image: url(../img/index_background.jpg); background-position: center;
+.content-wrapper
+{
+    background-color: transparent;
+}
+/* ####################################### LOGIN ############################################## */
+.login-container
+{
+    background-attachment: fixed;
+    background-image: url(../img/background.jpg);
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
-    width: 100%;
+    height: 100%;
 }
 
-.login-page .login-form {
-    background-color: whitesmoke;
-    height: 40vh;
-    margin: 0;
-    padding: 0;
-    width: 20vw;
+.login-container .login-form {
+    background-color: #FDFDFD;
+    box-shadow: black 8px 11px;
+    height: 20%;
+    max-height: 750px;
+    max-width: 750px;
+    min-height: 350px;
+    min-width: 350px;
+    padding: 25px;
+    width: 20%;
 }
 
-.login-page .login-form .login-form-header {
-    padding-top: 2vh;
-    width: 100%;
-    height: auto;
-}
-
-.login-page .login-form .login-form-header .login-icon{
-    color: white;
+.login-container .login-form .login-form-header .login-icon
+{
     background-color: black;
-    width: 80px;
-    height: 80px;
+    color: #DFDFDF;
+    height: 100px;
+    width: 100px;
 }
 
-.login-page .login-form  .login-form-body {
-    margin: 0;
-    padding: 2vw;
-    width: 100%;
-    height: auto;
-}
-
-.login-page .login-form  .login-form-body .user-icon{
-    position: absolute;
-    padding-top: 11px;
-    padding-left: 11px;
-}
-
-.login-page .login-form  .login-form-body .login-button{
-    background-color: black;
-    width: 100%;
-}
-
-.login-page .login-form  .login-form-body .login-button:hover{
-    background-color: white;
-    color: black;
-    width: 100%;
-}
-.login-page .login-form  .login-form-body input{
+.login-container .login-form .login-form-body input
+{
+    border: 1px solid black;
     padding-left: 30px;
 }
-/* /login */
 
-/* logout */
-.logout-button {
-    color: red !important;
-}
-
-.logout-button:hover{
-    color: white !important;
-}
-
-/* /logout */
-
-/* navigation bar(top) */
-.navbar-top {
-    width: 100%;
-}
-
-/* /navigation bar(top) */
-
-/* button */
-.edit-button {
-    color: rgb(110, 197, 23) !important;
-}
-
-.submit-edit {
-    background-color: rgb(110, 197, 23);
-    color: white;
-}
-
-.submit-edit:hover {
-    background-color: rgb(96, 168, 24);
-    color: white;
-}
-
-.delete-button {
-    color: red !important;
-}
-
-/* /button */
-
-.edit-form-header{
-    background-color:  rgb(110, 197, 23);
-    color: white;
-}
-
-
-.preview {
-    margin: 0% !important;
-    padding-bottom: 3%;
-}
-
-.preview .staff-header {
-    background-color: rgb(41, 141, 187);
-    color: white;
-    margin-bottom: 2%;
-}
-
-.preview .student-header {
-    background-color: rgb(41, 187, 102);
-    color: white;
-    margin-bottom: 2%;
-}
-
-.preview .course-header {
-    background-color: rgb(187, 41, 41);
-    color: white;
-    margin-bottom: 2%;
-}
-
-.preview .preview-body{
-    padding: 2%;
-}
-
-.preview .preview-tables {
-    width: 100%;
-}
-
-.preview .view-staff{
-    background-color:rgb(41, 141, 187);
-    color: white;
-}
-
-.cards {
-    max-width: 300vw;
-    height: auto;
-}
-
-
-.add-staff .add-staff-header {
-    background-color:rgb(41, 141, 187);
-    color: white;
-}
-
-.add-staff .add-staff-body input {
-    margin-top: 1vh;
-}
-
-.incorrect {
-    color: red;
+.login-container .login-form .login-form-body .incorrect
+{
+    color:red;
     position: absolute;
 }
 
+.login-container .login-form .login-form-body .login-icon
+{
+    position: absolute;
+    padding-left: 10px;
+    padding-top: 10px;
+}
 
-.delete-header {
-    background-color: rgb(187, 41, 41);
+.login-container .login-form .login-form-body input
+{
+    border: 1px solid black;
+    padding-left: 30px;    
+}
+
+.login-container .login-form .login-form-body .login-button
+{
+    background-color: black;
+    border: 1px solid white;
     color: white;
 }
 
-.try{
-    width: 15vw;
+.login-container .login-form .login-form-body .login-button:hover
+{
+    background-color: rgb(12, 12, 12);
+    border: 1px solid white;
+    color: white;
+}
+/* ####################################### LOGIN ############################################## */
+
+/* #################################### NAVBAR & SIDEBAR ##################################### */
+.main-header .menu 
+{
+    color: black;
 }
 
+.main-header .navbar-top .nav .menu-name
+{
+    color: black;
+}
 
-.student-form {
-    max-width: 65vw !important;
+.main-header .navbar-top .nav .menu-logout
+{
+    background-color: rgb(212, 212, 212);
+}
+
+.main-header .navbar-top .nav .menu-logout a
+{
+    color: red;
+}
+
+/* #################################### NAVBAR & SIDEBAR ##################################### */
+
+/* ######################################## STAFF ############################################# */
+
+.add-staff-button
+{
+    background-color: #22B2DA;
+    color: white;
+}
+
+.add-staff-button:hover
+{
+    background-color: rgb(211, 211, 211);
+    color: #22B2DA;
+}
+
+.add-staff-body input
+{
+    margin-top: 5px;
+}
+
+.add-staff-header
+{
+    background-color: #22B2DA;
+    color: white;
+}
+
+.edit-staff .edit-staff-body input
+{
+    margin-top: 5px;
+}
+
+.edit-staff .edit-staff-body .staff_id
+{
+    display: none;
+}
+
+.edit-staff .edit-staff-header
+{
+    background-color: #22B2DA;
+    color: white;
+}
+
+.street
+{
+    width: 100px;
+}
+
+.street-number
+{
+    width: 90px;
+}
+/* ######################################## STAFF ############################################# */
+
+/* ####################################### STUDENTS ########################################### */
+
+.add-student-button
+{
+    background-color: #3B4A6B;
+    color: white;
+}
+
+.add-student-button:hover
+{
+    background-color: rgb(211, 211, 211);
+    color: #3B4A6B;
+}
+
+.edit-row
+{
+    min-width: 60px;
+}
+
+.student-form
+{
     max-width: 65vw !important;
 }
+
+.student-form .student-form-header
+{
+    background-color: #3B4A6B;
+    color: white;
+}
+
+.student-id
+{
+    display: none;
+}
+/* ####################################### STUDENTS ########################################### */
+
+/* ######################################## COURSES ########################################### */
+.add-course
+{
+    background-color: #F23557;
+    color: white;
+}
+
+.add-course:hover
+{
+    background-color: rgb(221, 221, 221);
+    color: #F23557;
+}
+
+.course-form
+{
+    max-width: 30vw !important;
+    min-width: 600px !important;
+}
+
+.course-form-header
+{
+    background-color: #F23557;
+    color: white;
+}
+
+.course-id
+{
+    display: none;
+}
+
+.course-code
+{
+    width: 150px;
+}
+
+/* ######################################## COURSES ########################################### */
+
+/* #################################### BUTTON & STUFF ######################################### */
+.delete-button
+{
+    color: red !important; 
+}
+
+.edit-button
+{
+    color: rgb(0, 216, 0) !important;
+}
+
+.enroll-student
+{
+    color: white;
+}
+
+.enroll-student:hover
+{
+    color: white;
+}
+
+.incorrect
+{
+    position: absolute; 
+    color: red; 
+}
+
+.menu-down:focus
+{
+    display: none;
+}
+/* #################################### BUTTON & STUFF ######################################### */
+
+/* ######################################### ENROLL ############################################ */
+.result
+{
+   visibility: hidden;
+}
+
+.enroll-student-form
+{
+    max-width: 50vw !important;
+    min-width: 600px !important;
+}
+
+/* .enroll-body
+{
+    background-color: black;
+} */
+
+.hidden-form
+{
+    display: none;
+}
+/* ######################################### ENROLL ############################################ */

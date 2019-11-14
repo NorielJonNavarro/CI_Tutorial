@@ -4,7 +4,7 @@
 			<div class="modal-header add-staff-header">
 				<h5 class="modal-title" id="my-modal-title">Add Staff</h5>
 			</div>
-			<?= form_open('backend/add_staff', array('id' => 'add_staff_form'))?>
+			<?= form_open('staffs/add_staff', array('id' => 'staff_form_submit'))?>
 			<div class="modal-body add-staff-body">
 				<h2>Personal Information</h2>
 				<div class="d-flex">
@@ -32,23 +32,25 @@
 					<div class="form-group flex-fill">
 						<input id="email" class="form-control" type="text" name="email" placeholder="E-mail Address"
 							required>
-						<span class="incorrect" id="email_error"></span>
+						<span class="incorrect" id="email_error1"></span>
 					</div>
 
 					<span class="ml-1 mr-1"></span>
 
 					<div class="form-group flex-fill">
-						<input id="password" class="form-control" type="text" name="password" placeholder="Password" minlength="8" required>
+						<input id="password" class="form-control" type="text" name="password" placeholder="Password"
+							minlength="8" required>
 					</div>
 				</div>
 
 				<div class="d-flex">
 					<div class="form-group flex-fill">
-						<input id="mobile" class="form-control" type="text" name="mobile" placeholder="Mobile Number" minlength="11" maxlength="11" required>
-						<span class="incorrect" id="mobile_error"></span>
+						<input id="mobile" class="form-control" type="text" name="mobile" placeholder="Mobile Number"
+							minlength="11" maxlength="11" required>
+						<span class="incorrect" id="mobile_error1"></span>
 					</div>
 
-                    <span class="ml-1 mr-1"></span>
+					<span class="ml-1 mr-1"></span>
 
 					<div class="form-group flex-fill">
 						<input id="position" class="form-control" type="text" name="position" placeholder="Position"
@@ -57,41 +59,42 @@
 				</div>
 
 				<h2>Address</h2>
-				<div class="justify-content-center d-flex">
-					<div class="form-group">
-						<input id="province" class="form-control" type="text" name="province" placeholder="Province"
-							required>
+
+				<div class="d-flex">
+					<div class="form-group flex-fill">
+						<input id="streetNo" class="form-control street-number" type="text" name="streetNo"
+							placeholder="Street No">
 					</div>
 
 					<span class="ml-1 mr-1"></span>
 
-					<div class="form-group">
-						<input id="city" class="form-control" type="text" name="city" placeholder="city" required>
+					<div class="form-group flex-fill">
+						<input id="street" class="form-control" type="text" name="street" placeholder="Street">
 					</div>
 
 					<span class="ml-1 mr-1"></span>
-					<div class="form-group">
-						<input id="municipality" class="form-control" type="text" name="municipality"
-							placeholder="Municipality" required>
+
+					<div class="form-group flex-fill">
+						<input id="barangay" class="form-control" type="text" name="barangay" placeholder="Barangay">
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="form-group col-5">
-						<input id="barangay" class="form-control" type="text" name="barangay" placeholder="Barangay"
-							required>
+				<div class="justify-content-center d-flex">
+					<div class="form-group">
+						<input id="municipality" class="form-control" type="text" name="municipality"
+							placeholder="Municipality">
 					</div>
 
-					<span class=""></span>
+					<span class="ml-1 mr-1"></span>
 
-					<div class="form-group col-4">
-						<input id="street" class="form-control" type="text" name="street" placeholder="Street" required>
+					<div class="form-group">
+						<input id="city" class="form-control" type="text" name="city" placeholder="City" required>
 					</div>
 
-					<span class=""></span>
+					<span class="ml-1 mr-1"></span>
 
-					<div class="form-group col-3">
-						<input id="streetNo" class="form-control" type="text" name="streetNo" placeholder="Street No"
+					<div class="form-group">
+						<input id="province" class="form-control" type="text" name="province" placeholder="Province"
 							required>
 					</div>
 				</div>
@@ -99,11 +102,12 @@
 
 			<div class="modal-footer">
 				<div>
-					<button class="btn btn-success" type="submit">Submit & Close</button>
-					<button class="btn btn-primary" type="button">Add another</button>
+					<button class="btn btn-success" type="submit">Save</button>
 				</div>
 			</div>
 			<?= form_close();?>
 		</div>
 	</div>
 </div>
+
+<!-- onclick="add_staff()" -->

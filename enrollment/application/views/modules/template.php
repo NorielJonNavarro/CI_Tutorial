@@ -5,8 +5,8 @@
 <!-- Main body -->
 <?php
     if($this->session->userdata('logged_in')) {
-        $this->load->view('admin/sidebar');
-        $this->load->view('admin/navbar');    
+        $this->load->view('modules/sidebar');
+        $this->load->view('modules/navbar');    
     }
 ?>
 <?php $this->load->view($content);?>

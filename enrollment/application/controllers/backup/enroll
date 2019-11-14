@@ -1,0 +1,60 @@
+  if($_POST)
+        {
+            
+        $first_name = $_POST['firstName'];
+        $middle_name = $_POST['middleName'];
+        $last_name = $_POST['lastName'];
+
+        $data = null;
+        if(!empty($first_name) && !empty($middle_name) && !empty($last_name))
+        {
+            $data['first_name'] = $first_name;
+            $data['middle_name'] = $middle_name;
+            $data['last_name'] = $last_name;
+        }
+        elseif (!empty($first_name) && !empty($middle_name))
+        {
+            $data['first_name'] = $first_name;
+            $data['middle_name'] = $middle_name;
+            $data['last_name'] = null;
+        }
+        elseif (!empty($first_name) && !empty($last_name))
+        {            
+            $data['first_name'] = $first_name;
+            $data['middle_name'] = null;
+            $data['last_name'] = $last_name;
+        }
+        elseif (!empty($middle_name) && !empty($last_name))
+        {            
+            $data['first_name'] = null;
+            $data['middle_name'] = $middle_name;
+            $data['last_name'] = $last_name;
+        }
+        elseif (!empty($first_name))
+        {            
+            $data['first_name'] = $first_name;
+            $data['middle_name'] = null;
+            $data['last_name'] = null;
+        }
+        elseif (!empty($middle_name))
+        {            
+            $data['first_name'] = null;
+            $data['middle_name'] = $middle_name;
+            $data['last_name'] = null;
+        }
+        elseif (!empty($last_name))
+        {            
+            $data['first_name'] = null;
+            $data['middle_name'] = null;
+            $data['last_name'] = $last_name;
+        }
+        else {
+            echo json_encode('you must select');
+            exit;
+        }
+
+        $result['students'] = $this->student->search($data);
+        // $array = array(
+        //     'email' => $email_response,
+        //     'mobile' => $mobile_response
+        // );

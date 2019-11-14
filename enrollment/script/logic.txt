@@ -1,0 +1,30 @@
+QA:
+	Login:
+		Front-End: DONE
+		Script: DONE
+		Back-end: DONE
+		
+	Homepage:
+		Navbar: Done
+		Sidebar: DONE
+	Course: ADD. EDIT, & DELETE(DONE)
+	Staff: ADD. EDIT, & DELETE(DONE)
+	Student: ADD. EDIT, & DELETE(DONE)
+
+Validation for Courses:
+	Initial:
+		Check if the course code, course description already exists in the database. 
+		Make sure the start time is less than the end time and check if there are days chosen for the schedule.
+
+		QUERY #1: SELECT course_code FROM Courses
+		WHERE course_code = <user_input>
+
+		QUERY #2: SELECT course_description FROM Courses
+		WHERE course_description = <user_input>
+
+	Additional Validation:
+		Check for instructor, schedule, and room conflicts
+
+		1. Check if the instructor matches on other Courses. If it does, check the schedule if a row is returned, 
+		it means that it has a conflict.
+		

@@ -7,22 +7,18 @@ $(document).ready(function () {
 			data: $(this).serialize(),
 			dataType: "json",
 			success: function (response) {
-				console.log(response);
-				if (response.email === 'not validated') {
-					$('#email_error').html('user does not exists');
+				if (response.email === true && response.password === true && response.user_type === true) {
+					window.location.href = "staffs/";
+				} else if (response.email === true && response.password === true && response.user_type === false) {
+					$('#user_error').html('User is not admin');
 					$('#password_error').html('');
-				} else if (response.email === 'validated' && response.password === 'not validated') {
+				} else if (response.email === true && response.password === false) {
+					$('#user_error').html('');
 					$('#password_error').html('Incorrect Password');
-				} else if (response.email === 'validated' && response.password === 'validated' && response.user === 'not validated') {
-					$('#email_error').html('User is not an admin');
 				} else {
-					window.location.href = 'backend/home';
+					$('#user_error').html('E-mail not recognized');
+					$('#password_error').html('');
 				}
-
-				if (response.email === 'validated') {
-					$('#email_error').html('');
-				}
-
 			}
 		});
 	});

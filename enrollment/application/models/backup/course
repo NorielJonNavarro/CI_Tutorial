@@ -1,0 +1,115 @@
+    function get_courses()
+    {
+        // SELECT * FROM `courses` LEFT JOIN `staff` ON courses.instructor_id=staff.staff_id 
+        // 
+        $this->db->select();
+        $this->db->from('courses');
+        $this->db->join('staff', 'courses.instructor_id=staff.staff_id');
+        $query = $this->db->get();
+        $result = $query->result_array('array');
+        return $result;
+    }
+
+    function update($course_id, $data)
+    {
+        $this->db->where('course_id', $course_id);
+        $this->db->update('courses', $data);
+    }
+
+    function get($course_id)
+    {
+        $this->db->select();
+        $this->db->from('courses');
+        $this->db->join('staff', 'courses.instructor_id=staff.staff_id');
+        $this->db->where(array('course_id' => $course_id));
+        $query = $this->db->get();
+        $result = $query->first_row('array');
+        return $result;
+
+        // $query = $this->db->get_where('courses', array('course_id' => $course_id));
+        // return $query->first_row('array');
+    }
+
+    function delete($course_id)
+    {
+        $this->db->where('course_id', $course_id);
+        $this->db->delete('courses');
+    }
+
+    function validate_edit($course_id, $course_description, $course_code)
+    {
+        $this->db->select('course_code');
+        $this->db->from('courses');
+        $this->db->where(array('course_id !=' => $course_id, 'course_code' => $course_code));
+        $query1 = $this->db->get();
+        $row1 = $query1->num_rows();
+        $data['course_code'] = $query1->num_rows();
+
+        $this->db->select('course_description');
+        $this->db->from('courses');
+        $this->db->where(array('course_id !=' => $course_id,'course_description' => $course_description));
+        $query2 = $this->db->get();
+        $row2 = $query2->num_rows();
+        $data['course_description'] = $query2->num_rows();
+        
+        return $data;
+    }
+
+
+
+
+
+
+        $this->db->select();
+        $this->db->from('studentlist');
+        $this->db->join('courses', 'studentlist.course_id = courses.course_id', 'left');
+        $this->db->join('students', 'studentlist.student_id = students.student_id', 'left');
+        $this->db->group_start();
+            $this->db->group_start();
+            $this->db->where('start_time  >=', $start_time);
+            $this->db->where('start_time <=', $end_time);
+            $this->db->group_end();
+            
+            $this->db->or_group_start();
+            $this->db->where('end_time >=', $start_time);
+            $this->db->where('end_time <=', $end_time);
+            $this->db->group_end();
+        $this->db->group_end();
+        
+        $this->db->group_start();
+            $this->db->or_group_start();
+            $this->db->where('monday', $monday);
+            $this->db->where('monday !=', null);
+            $this->db->group_end();
+
+            $this->db->or_group_start();
+            $this->db->where('tuesday', $tuesday);
+            $this->db->where('tuesday !=', null);
+            $this->db->group_end();
+
+            $this->db->or_group_start();
+            $this->db->where('wednesday', $wednesday);
+            $this->db->where('wednesday !=', null);
+            $this->db->group_end();
+
+            $this->db->or_group_start();
+            $this->db->where('thursday', $thursday);
+            $this->db->where('thursday !=', null);
+            $this->db->group_end();
+
+            $this->db->or_group_start();
+            $this->db->where('friday', $friday);
+            $this->db->where('friday !=', null);
+            $this->db->group_end();
+
+            $this->db->or_group_start();
+            $this->db->where('saturday', $saturday);
+            $this->db->where('saturday !=', null);
+            $this->db->group_end();
+            
+            $this->db->group_start();
+            $this->db->where('instructor_id', $instructor_id);
+            $this->db->or_where('room', $room);
+            $this->db->group_end();
+
+        $this->db->group_end();

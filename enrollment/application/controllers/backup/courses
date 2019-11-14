@@ -1,0 +1,141 @@
+function get_course($course_id)
+    {
+        if($this->session->userdata('logged_in')){
+            $data['style'] = 'admin/css';
+            $data['content'] = 'home';
+            $data['script'] = 'admin/js';
+            $data['table'] = 'courses/edit_course';
+            $data['course'] = $this->course->get($course_id);
+            $course = $data['course'];
+
+            $array = array(
+                'course_id' => $course['course_id'],
+                'unit' => $course['unit'],
+                'course_code' => $course['course_code'],
+                'course_description' => $course['course_description'],
+                'instructor' => ' '.$course['first_name'].', '.$course['last_name'].'',
+                'room' => $course['room'],
+                'start' => $course['start_time'],
+                'end' => $course['end_time']
+
+            );
+
+            echo json_encode($array);
+        }
+        else
+        {
+            redirect(base_url());
+        }
+    }
+
+    function edit_course($course_id)
+    {
+        $session = $this->session->userdata('logged_in');
+        if($session)
+        {
+            if($_POST)
+            {
+                $unit = $_POST['units'];
+                $course_code = $_POST['courseCode'];
+                $course_description = $_POST['courseDescription'];
+                $room = $_POST['room'];            
+                $start_time = $_POST['startTime'];
+                $end_time = $_POST['endTime'];
+                $course_description_error = true;
+                $course_code_error = true;
+                $course_code_error = null;
+                $course_description_error = null;
+                $time_error = null;
+                $verify = $this->course->validate_edit($course_id, $course_description, $course_code);
+
+                if(!$verify['course_code'] && !$verify['course_description'] && $start_time < $end_time){
+                    $data = array(
+                        'unit' => $unit,                 
+                        'course_code' => $course_code,
+                        'course_description' => $course_description,
+                        'room' => $room,
+                        'start_time' => $start_time,
+                        'end_time' => $end_time,
+                        'available_slot' => 40
+                    );
+                    $this->course->update($course_id, $data);
+                }
+
+                if(!$verify['course_code'])
+                {
+                    $course_code_error = $verify['course_code'];
+                    
+                }
+                else
+                {
+                    $course_code_error = true;
+                }
+
+                if(!$verify['course_description'])
+                {
+                    $course_description_error = $verify['course_description'];
+                }
+                else
+                {
+                    $course_description_error = true;
+                }
+
+                if($start_time >= $end_time)
+                {
+                    $time_error = true;
+                }
+                else
+                {
+                    $time_error = false;
+                }
+
+                $array = array(
+                            'description' => $course_description_error,
+                            'code' => $course_code_error,
+                            'time' => $time_error,
+                        );
+                echo json_encode($array);                       
+            }else{
+                exit();
+            }
+        }else {
+            redirect(base_url(). 'backend/login');
+        }
+    }
+
+    function delete_course($course_id)
+    {
+        $session = $this->session->userdata('logged_in');
+        if($session)
+        {
+            $this->course->delete($course_id);
+            echo '<script>alert("Successfully Deleted")</script>';
+            echo '<script>window.location.replace("'.base_url().'courses");</script>';
+        }
+        else 
+        {
+            redirect(base_url());
+        }
+    }
+
+    function enroll_students($course_id)
+    {
+        $session = $this->session->userdata('logged_in');
+        if($session)
+        {
+            if($_POST)
+            {
+
+            }else {
+                $data['course'] = $this->course->get($course_id);
+                $data['style'] = 'admin/css';
+                $data['content'] = 'enroll_page';
+                $data['script'] = 'admin/js';
+                $this->load->view('modules/template', $data);
+            }
+        }
+        else 
+        {
+            redirect(base_url());
+        }
+    }
